@@ -1,6 +1,6 @@
 import { ANSI } from "../utils/ansi.mjs";
 import KeyBoardManager, { clearScreen } from "../utils/io.mjs";
-import { print, printCenterd } from "../utils/io.mjs";
+import { print, printCenter } from "../utils/io.mjs";
 
 let currentActiveMenuItem = 0
 let menuItemCount = 0;
@@ -56,7 +56,7 @@ function createMenu(menuItems) {
 
                 }
 
-                printCenterd(output);
+                printCenter(output);
 
             }
         }

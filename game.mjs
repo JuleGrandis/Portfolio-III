@@ -4,14 +4,17 @@ import SplashScreen from "./game/splash.mjs";
 import { FIRST_PLAYER, SECOND_PLAYER } from "./consts.mjs";
 import createMenu from "./utils/menu.mjs";
 import createMapLayoutScreen from "./game/mapLayoutScreen.mjs";
-import createInnBetweenScreen from "./game/innbetweenScreen.mjs";
+import createInnBetweenScreen from "./game/inbetweenScreen.mjs";
 import createBattleshipScreen from "./game/battleshipsScreen.mjs";
+import DICTIONARY from "./dictionary.mjs";
 
 const MAIN_MENU_ITEMS = buildMenu();
 
-const GAME_FPS = 1000 / 60; // The theoretical refresh rate of our game engine
+const GAME_FPS = 1000 / 60;
+const MIN_TERMINAL_WIDTH = 80;
+const MIN_TERMINAL_HEIGHT = 24;
 let currentState = null;    // The current active state in our finite-state machine.
-let gameLoop = null;        // Variable that keeps a refrence to the interval id assigned to our game loop 
+let gameLoop = null;        // Variable that keeps a reference to the interval id assigned to our game loop 
 
 let mainMenuScene = null;
 
@@ -22,6 +25,10 @@ let mainMenuScene = null;
     SplashScreen.next = mainMenuScene;
     currentState = SplashScreen  // This is where we decide what state our finite-state machine will start in. 
     gameLoop = setInterval(update, GAME_FPS); // The game is started.
+
+    if (!checkMinimumResolution()) {
+        process.exit(1);
+    }
 })();
 
 function update() {
@@ -33,7 +40,7 @@ function update() {
     }
 }
 
-// Suport / Utility functions ---------------------------------------------------------------
+// Support / Utility functions ---------------------------------------------------------------
 
 function buildMenu() {
     let menuItemCount = 0;
@@ -41,33 +48,45 @@ function buildMenu() {
         {
             text: "Start Game", id: menuItemCount++, action: function () {
                 clearScreen();
-                let innbetween = createInnBetweenScreen();
-                innbetween.init(`SHIP PLACMENT\nFirst player get ready.\nPlayer two look away`, () => {
+                let inbetween = createInnBetweenScreen();
+                inbetween.init(`SHIP PLACEMENT\nFirst player get ready.\nPlayer two look away`, () => {
 
                     let p1map = createMapLayoutScreen();
                     p1map.init(FIRST_PLAYER, (player1ShipMap) => {
 
 
-                        let innbetween = createInnBetweenScreen();
-                        innbetween.init(`SHIP PLACMENT\nSecond player get ready.\nPlayer one look away`, () => {
+                        let inbetween = createInnBetweenScreen();
+                        inbetween.init(`SHIP PLACEMENT\nSecond player get ready.\nPlayer one look away`, () => {
                             let p2map = createMapLayoutScreen();
                             p2map.init(SECOND_PLAYER, (player2ShipMap) => {
                                 return createBattleshipScreen(player1ShipMap, player2ShipMap);
                             })
                             return p2map;
                         });
-                        return innbetween;
+                        return inbetween;
                     });
 
                     return p1map;
 
                 }, 3);
-                currentState.next = innbetween;
+                currentState.next = inbetween;
                 currentState.transitionTo = "Map layout";
             }
         },
         { text: "Exit Game", id: menuItemCount++, action: function () { print(ANSI.SHOW_CURSOR); clearScreen(); process.exit(); } },
     ];
+}
+
+function checkMinimumResolution() {
+    const width = process.stdout.columns;
+    const height = process.stdout.rows;
+
+    if (width < MIN_TERMINAL_WIDTH || height < MIN_TERMINAL_HEIGHT) {
+        console.error(DICTIONARY.en.RESOLUTION_ERROR_MSG);
+        return false;
+    }
+
+    return true;
 }
 
 

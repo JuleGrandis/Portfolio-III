@@ -1,4 +1,4 @@
-import { print, clearScreen, printCenterd } from "../utils/io.mjs";
+import { print, clearScreen, printCenter } from "../utils/io.mjs";
 import { ANSI } from "../utils/ansi.mjs";
 
 const UI = ` ######                                    #####                         
@@ -28,7 +28,7 @@ const SplashScreen = {
         if (isDrawn == false) {
             isDrawn = true;
             clearScreen();
-            printCenterd(UI);
+            printCenter(UI);
         }
     }
 

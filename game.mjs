@@ -1,7 +1,7 @@
 import { ANSI } from "./utils/ansi.mjs";
 import { print, clearScreen, printCenter } from "./utils/io.mjs";
 import SplashScreen from "./game/splash.mjs";
-import { FIRST_PLAYER, SECOND_PLAYER } from "./consts.mjs";
+import {FIRST_PLAYER, SECOND_PLAYER, GAME_FPS, MIN_TERMINAL_HEIGHT, MIN_TERMINAL_WIDTH} from "./consts.mjs";
 import createMenu from "./utils/menu.mjs";
 import createMapLayoutScreen from "./game/mapLayoutScreen.mjs";
 import createInnBetweenScreen from "./game/inbetweenScreen.mjs";
@@ -10,12 +10,6 @@ import DICTIONARY from "./dictionary.mjs";
 
 let currentLanguage = DICTIONARY.en;
 
-const MAIN_MENU_ITEMS = buildMenu();
-const LANGUAGE_MENU_ITEMS = buildLanguageMenu();
-
-const GAME_FPS = 1000 / 60;
-const MIN_TERMINAL_WIDTH = 80;
-const MIN_TERMINAL_HEIGHT = 24;
 let currentState = null;    // The current active state in our finite-state machine.
 let gameLoop = null;        // Variable that keeps a reference to the interval id assigned to our game loop
 

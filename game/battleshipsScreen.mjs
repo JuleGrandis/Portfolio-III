@@ -3,12 +3,11 @@ import { print } from "../utils/io.mjs";
 
 
 
-const creteBattleshipScreen = () => {
+const creteBattleshipScreen = (player1Map, player2Map) => {
 
     let currentPlayer = FIRST_PLAYER;
     let firstPlayerBoard = null;
     let secondPlayerBoard = null;
-
 
     function swapPlayer() {
         currentPlayer *= -1;
@@ -44,7 +43,8 @@ const creteBattleshipScreen = () => {
 
 
                 print("There should be a battleship game here");
-
+                
+                print(player1Map.length);
 
             }
         }

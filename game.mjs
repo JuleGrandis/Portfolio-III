@@ -104,13 +104,21 @@ function buildLanguageMenu() {
                 currentLanguage = DICTIONARY.no;
                 languageMenuScene.next = mainMenuScene;
                 currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
-        }
-    },
-        { text: currentLanguage.BACK_MESSAGE, id: menuItemCount++, action: function () {
+            }
+        },
+        {
+            text: currentLanguage.JAPANESE_MESSAGE, id: menuItemCount++, action: function() {
+                currentLanguage = DICTIONARY.ja;
                 languageMenuScene.next = mainMenuScene;
                 currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
+            }
+        },
+        {
+            text: currentLanguage.BACK_MESSAGE, id: menuItemCount++, action: function () {
+                languageMenuScene.next = mainMenuScene;
+                currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
+            }
         }
-    }
     ];
 }
 

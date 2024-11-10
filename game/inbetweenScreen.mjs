@@ -1,4 +1,5 @@
 import { print, printCenter } from "../utils/io.mjs";
+import currentLanguage from "../language/currentLanguage.mjs";
 
 function createInBetweenScreen() {
     return {
@@ -20,7 +21,7 @@ function createInBetweenScreen() {
             this.displayTime -= dt;
             if (this.displayTime <= 0) {
                 this.next = this.transitionFn();
-                this.transitionTo = "Transitioning away from inbetween screen"
+                this.transitionTo = currentLanguage.TRANSITION_TO_INBETWEEN;
             }
         },
 

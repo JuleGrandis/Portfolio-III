@@ -12,10 +12,22 @@ const DICTIONARY = {
         ENGLISH_MESSAGE: "English",
         NORWEGIAN_MESSAGE: "Norwegian",
         JAPANESE_MESSAGE: "Japanese",
-        BACK_MESSAGE: "Back"
-
-
-
+        BACK_MESSAGE: "Back",
+        SHIP_PLACEMENT_MESSAGE: "Ship Placement Phase\n\n",
+        CONTROLS_MESSAGE: "Controls:",
+        ARROW_KEY_MESSAGE: "Arrow keys: Move cursor\n",
+        ROTATE_SHIP_MESSAGE: "R: Rotate ship\n",
+        PLACE_SHIP_MESSAGE: "Enter: Place ship\n",
+        SHIPS_TO_PLACE_MESSAGE: "Ships to place:",
+        CHECK_MARK: "✓",
+        SPACES_MESSAGE: "spaces)\n",
+        NEXT_STATE_MESSAGE: "next state",
+        CARRIER_MESSAGE: "Carrier",
+        BATTLESHIP_MESSAGE: "Battleship",
+        CRUISER_MESSAGE: "Cruiser",
+        SUBMARINE_MESSAGE: "Submarine",
+        DESTROYER_MESSAGE: "Destroyer",
+        TRANSITION_TO_INBETWEEN: "Transitioning away from inbetween screen"
     },
     no: {
         RESOLUTION_ERROR_MSG: 'Feil: Konsoll vinduet er for lite. Vennligst endre vindu størrelse til 80x24',
@@ -29,7 +41,22 @@ const DICTIONARY = {
         ENGLISH_MESSAGE: "Engelsk",
         NORWEGIAN_MESSAGE: "Norsk",
         JAPANESE_MESSAGE: "Japansk",
-        BACK_MESSAGE: "Tilbake"
+        BACK_MESSAGE: "Tilbake",
+        SHIP_PLACEMENT_MESSAGE: "Fase for plassering av skip\n\n",
+        CONTROLS_MESSAGE: "Kontroller:",
+        ARROW_KEY_MESSAGE: "Piltaster: Flytt markøren\n",
+        ROTATE_SHIP_MESSAGE: "R: Roter skip\n",
+        PLACE_SHIP_MESSAGE: "Enter: Plasser skip\n",
+        SHIPS_TO_PLACE_MESSAGE: "Skip å plassere:",
+        CHECK_MARK: "✓",
+        SPACES_MESSAGE: "plasser)\n",
+        NEXT_STATE_MESSAGE: "neste tilstand",
+        CARRIER_MESSAGE: "Hangarskip",
+        BATTLESHIP_MESSAGE: "Slagskip",
+        CRUISER_MESSAGE: "Krysser",
+        SUBMARINE_MESSAGE: "Ubåt",
+        DESTROYER_MESSAGE: "Jager",
+        TRANSITION_TO_INBETWEEN: "Går bort fra mellomskjermen"
     },
     ja: {
         RESOLUTION_ERROR_MSG: "エラー: コンソールウィンドウが小さすぎます。サイズを80x24に変更してください。",
@@ -43,7 +70,22 @@ const DICTIONARY = {
         ENGLISH_MESSAGE: "英語",
         NORWEGIAN_MESSAGE: "ノルウェー語",
         JAPANESE_MESSAGE: "日本語",
-        BACK_MESSAGE: "戻る"
+        BACK_MESSAGE: "戻る",
+        SHIP_PLACEMENT_MESSAGE: "艦船配置フェーズ\n\n",
+        CONTROLS_MESSAGE: "操作方法:",
+        ARROW_KEY_MESSAGE: "矢印キー: カーソルを移動\n",
+        ROTATE_SHIP_MESSAGE: "R: 艦船を回転\n",
+        PLACE_SHIP_MESSAGE: "Enter: 艦船を配置\n",
+        SHIPS_TO_PLACE_MESSAGE: "配置する艦船:",
+        CHECK_MARK: "✓",
+        SPACES_MESSAGE: "マス)\n",
+        NEXT_STATE_MESSAGE: "次の状態",
+        CARRIER_MESSAGE: "空母",
+        BATTLESHIP_MESSAGE: "戦艦",
+        CRUISER_MESSAGE: "巡洋艦",
+        SUBMARINE_MESSAGE: "潜水艦",
+        DESTROYER_MESSAGE: "駆逐艦",
+        TRANSITION_TO_INBETWEEN: "中間画面からの移行"
     }
 };
 

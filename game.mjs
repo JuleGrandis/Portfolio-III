@@ -6,9 +6,8 @@ import createMenu from "./utils/menu.mjs";
 import createMapLayoutScreen from "./game/mapLayoutScreen.mjs";
 import createInnBetweenScreen from "./game/inbetweenScreen.mjs";
 import createBattleshipScreen from "./game/battleshipsScreen.mjs";
-import DICTIONARY from "./dictionary.mjs";
-
-let currentLanguage = DICTIONARY.en;
+import DICTIONARY from "./language/dictionary.mjs";
+import currentLanguage from "./language/currentLanguage.mjs";
 
 let currentState = null;    // The current active state in our finite-state machine.
 let gameLoop = null;        // Variable that keeps a reference to the interval id assigned to our game loop
@@ -94,27 +93,34 @@ function buildLanguageMenu() {
     return [
         {
             text: currentLanguage.ENGLISH_MESSAGE, 
-            id: menuItemCount++, action: function () {
-                currentLanguage = DICTIONARY.en;
+            id: menuItemCount++, 
+            action: function () {
+                Object.assign(currentLanguage, DICTIONARY.en);
                 languageMenuScene.next = mainMenuScene;
                 currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
             }
         },
-        {   text: currentLanguage.NORWEGIAN_MESSAGE, id: menuItemCount++, action: function() {
-                currentLanguage = DICTIONARY.no;
+        {   text: currentLanguage.NORWEGIAN_MESSAGE, 
+            id: menuItemCount++,
+             action: function() {
+                Object.assign(currentLanguage, DICTIONARY.no);
                 languageMenuScene.next = mainMenuScene;
                 currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
             }
         },
         {
-            text: currentLanguage.JAPANESE_MESSAGE, id: menuItemCount++, action: function() {
-                currentLanguage = DICTIONARY.ja;
+            text: currentLanguage.JAPANESE_MESSAGE, 
+            id: menuItemCount++, 
+            action: function() {
+                Object.assign(currentLanguage, DICTIONARY.ja);
                 languageMenuScene.next = mainMenuScene;
                 currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
             }
         },
         {
-            text: currentLanguage.BACK_MESSAGE, id: menuItemCount++, action: function () {
+            text: currentLanguage.BACK_MESSAGE, 
+            id: menuItemCount++, 
+            action: function () {
                 languageMenuScene.next = mainMenuScene;
                 currentState.transitionTo = currentLanguage.MAIN_MENU_MESSAGE;
             }

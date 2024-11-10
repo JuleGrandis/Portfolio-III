@@ -9,8 +9,8 @@ import createBattleshipScreen from "./game/battleshipsScreen.mjs";
 import DICTIONARY from "./language/dictionary.mjs";
 import currentLanguage from "./language/currentLanguage.mjs";
 
-let currentState = null;    // The current active state in our finite-state machine.
-let gameLoop = null;        // Variable that keeps a reference to the interval id assigned to our game loop
+let currentState = null;
+let gameLoop = null;
 
 
 let mainMenuScene = null;
@@ -21,8 +21,8 @@ let languageMenuScene = null;
     clearScreen();
     updateMenus();
     SplashScreen.next = mainMenuScene;
-    currentState = SplashScreen  // This is where we decide what state our finite-state machine will start in. 
-    gameLoop = setInterval(update, GAME_FPS); // The game is started.
+    currentState = SplashScreen;
+    gameLoop = setInterval(update, GAME_FPS);
 
     if (!checkMinimumResolution()) {
         process.exit(1);

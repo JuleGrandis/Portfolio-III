@@ -16,9 +16,7 @@ const SplashScreen = {
 
     next: null,
     transitionTo: null,
-    /**
-     * Updates the screen data and prepares the properties for the next screen.
-     */
+
     update: function (dt) {
         countdown -= dt;
         if (countdown <= 0) {
